@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pascal to Sierpinski</title>
+    <link href="css/pasSier.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="aboutDisplay">
+      <p>
+        You might recognize this as the Sierpinski triangle, which is a fractal
+        pattern created by starting with a triangle and creating 3 triangles, each
+        1/4th the size of the original, on each adjacent side of the triangle, and
+        continuing that pattern infinitely for each triangle.
+      </p>
+      <p>
+        However, if you hover over each square on this triangle, you'll find that
+        the pattern is actually that of Pascal's triangle! Pascal's triangle is formed
+        by adding together the numbers in the rows directly above. When the odd and even
+        numbers are highlighted different colors, the pattern that emerges is exactly that
+        of the Sierpinski triangle!
+      </p>
+    </div>
+    <div id="numDisplayAnchor"></div>
+    <div id="numDisplay"></div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/pasSier.js"></script>
+    <script>
+      function sticky_relocate() {
+      var window_top = $(window).scrollTop();
+      var div_top = $('#numDisplayAnchor').offset().top;
+      if (window_top > div_top)
+        $('#numDisplay').addClass('sticky');
+      else
+        $('#numDisplay').removeClass('sticky');
+      }
+
+      $(function() {
+          $(window).scroll(sticky_relocate);
+          sticky_relocate();
+      });
+    </script>
+  </body>
+</html>
